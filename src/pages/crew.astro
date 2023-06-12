@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Reversed from "../layouts/Reversed.astro";
 ---
 
-<Layout title="Technology" pageNumber={2} pageHeader="Meet Your Crew">
+<Reversed title="Technology" pageNumber={2} pageHeader="Meet Your Crew">
 	<div slot="top-content" class="top-content">
 		<img
 			src="/crew/image-douglas-hurley.png"
@@ -76,9 +76,9 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</div>
 	<script src="../components/TabsHandler.ts"></script>
-</Layout>
+</Reversed>
 
-<style lang="scss" is:global>
+<style lang="scss">
 	body {
 		background: url(/crew/background-crew-mobile.jpg) no-repeat center center
 			fixed;
@@ -144,12 +144,6 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	@media only screen and (min-width: 768px) {
-		.content {
-			display: flex;
-			flex-direction: column-reverse;
-			padding-bottom: 0;
-		}
-
 		.top-content {
 			border: none;
 			flex-grow: 0;
@@ -158,6 +152,7 @@ import Layout from "../layouts/Layout.astro";
 		}
 
 		.bottom-content {
+			display: flex;
 			padding-inline: 5rem;
 			flex-direction: column-reverse;
 			margin: auto;
@@ -180,13 +175,6 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	@media only screen and (min-width: 1100px) {
-		.content {
-			flex-direction: row-reverse;
-			padding-bottom: 0;
-			padding-right: 0;
-			gap: 1rem;
-		}
-
 		.bottom-content {
 			padding-inline: 0;
 			width: auto;

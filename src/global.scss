@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;700&family=Barlow:wght@200;400&family=Bellefair&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-width: 100vw;
+	min-height: 100vh;
+
+	font-family: var(--font-secondary);
+}
+
+html {
+	background-color: black;
+	--white: #ffffff;
+	--gray: #979797;
+	--dark-blue: #383b4b;
+
+	--text-primary: #ffffff;
+	--text-secondary: #d0d6f9;
+	--text-invert: #0b0d17;
+
+	--font-primary: "Bellefair", serif;
+	--font-secondary: "Barlow", sans-serif;
+	--font-condensed: "Barlow Condensed", sans-serif;
+
+	--font-spacing-small: 0.16875rem;
+	--font-spacing-medium: 0.21125rem;
+	--font-spacing-large: 
+
+	--panel-bg: rgba(255, 255, 255, 0.04);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+h1.page-header {
+	text-align: center;
+	color: var(--white);
+	span {
+		font-weight: 700;
+		color: var(--white);
+		opacity: 0.25;
+		padding-right: 0.25rem;
+	}
+
+	@media only screen and (min-width: 768px) {
+		text-align: left;
+		padding-left: 2rem;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		padding-left: 10rem;
+		padding-bottom: 2rem;
+	}
+}
+
+
+p {
+	margin: 0;
+	font-family: "Barlow", sans-serif;
+	line-height: 1.5625rem;
+
+	@media only screen and (min-width: 768px) {
+		line-height: 1.75rem;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		line-height: 2rem;
+	}
+}
+
+
+a {
+	text-decoration: none;
+	color: var(--text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	text-transform: uppercase;
+}
+
+h2 {
+	margin: 0;
+}
+
+.heading-1 {
+	font: 400 5rem "Bellefair";
+	color: #fff;
+
+	@media only screen and (min-width: 768px) {
+		font-size: 9.375rem;
+	}
+}
+
+.heading-2 {
+	font: 400 6.25rem "Bellefair";
+	color: #fff;
+}
+
+.heading-3 {
+	margin: 1rem 0;
+	font: 400 3.5rem "Bellefair";
+	color: #fff;
+
+	@media only screen and (min-width: 768px) {
+		font-size: 5rem;
+	}
+	@media only screen and (min-width: 1100px) {
+		font-size: 6.25rem;
+	}
+}
+
+.heading-4 {
+	font: 400 2rem "Bellefair";
+	color: #fff;
+}
+
+.heading-5 {
+	font: 400 1rem "Barlow Condensed";
+	letter-spacing: 0.16875rem;
+	color: var(--text-secondary);
+
+	@media only screen and (min-width: 768px) {
+		font-size: 1.25rem;
+		letter-spacing: 0.21125rem;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		font-size: 1.75rem;
+		letter-spacing: 0.295rem;
+	}
+}
+
+.subheading-1 {
+	font: 400 1.75rem "Bellefair";
+	color: #fff;
+}
+
+.subheading-2 {
+	font: 400 0.875rem "Barlow Condensed";
+	letter-spacing: 0.146875rem;
+	color: #fff;
+}
+
+.nav-text {
+	font: 400 1rem "Barlow Condensed";
+	letter-spacing: 0.16875rem;
+	color: #fff;
+}
+
+.body-text {
+	font: 400 0.9375rem "Barlow";
+	color: var(--text-secondary);
+	line-height: 1.5625rem;
+
+	@media only screen and (min-width: 768px) {
+		font-size: 1rem;
+		line-height: 1.75rem;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		font-size: 1.125rem;
+		line-height: 2rem;
+	}
+}
+
+[data-tab-content] {
+	display: none;
+}
+
+[data-tab-content-active] {
+	display: initial;
+}
+
+.top-content,
+.bottom-content {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
