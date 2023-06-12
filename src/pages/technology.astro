@@ -1,8 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ReversedDesktop from "../layouts/ReversedWIthBanner.astro";
 ---
 
-<Layout title="Technology" pageNumber={3} pageHeader="Space Launch 101">
+<ReversedDesktop
+	title="Technology"
+	pageNumber={3}
+	pageHeader="Space Launch 101"
+>
 	<div slot="top-content" class="top-content">
 		<div class="images">
 			<img
@@ -107,9 +111,9 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</div>
 	<script src="../components/TabsHandler.ts"></script>
-</Layout>
+</ReversedDesktop>
 
-<style lang="scss" is:global>
+<style lang="scss">
 	body {
 		background: url(/technology/background-technology-mobile.jpg) no-repeat
 			center center fixed;
@@ -194,10 +198,6 @@ import Layout from "../layouts/Layout.astro";
 		}
 	}
 
-	.content {
-		padding-inline: 0;
-	}
-
 	@media only screen and (min-width: 768px) {
 		.bottom-content {
 			align-items: center;
@@ -222,12 +222,7 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	@media only screen and (min-width: 1100px) {
-		.content {
-			flex-direction: row-reverse;
-			padding-left: 10rem;
-		}
-
-		.bottom-content {
+		div.bottom-content {
 			flex-direction: row;
 			justify-content: center;
 			padding-inline: 0;
@@ -244,7 +239,7 @@ import Layout from "../layouts/Layout.astro";
 			font-size: 2rem;
 		}
 
-		.landscape-image {
+		img.landscape-image {
 			display: none;
 		}
 

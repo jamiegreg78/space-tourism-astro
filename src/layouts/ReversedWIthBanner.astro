@@ -1,7 +1,7 @@
 ---
-/// This layout is primarily used for the crew page, since it reverses the order on tablet and up.
-import Header from "../components/Header.astro";
+// This component differs from the others in that it will only reverse on desktop, not on tablet
 
+import Header from "../components/Header.astro";
 export interface Props {
 	title: string;
 	pageHeader?: string;
@@ -40,15 +40,13 @@ const { title, pageHeader, pageNumber } = Astro.props;
 
 <style lang="scss" is:global>
 	@import "../styles/global.css";
-	* {
-		box-sizing: border-box;
-	}
 
 	.content {
 		width: 100%;
 		height: 100%;
 		padding: 2rem 1.5rem 1rem 1.5rem;
-		color: var(--text-secondary);
+		padding-inline: 0;
+		color: var(--text-primary);
 		flex-grow: 1;
 
 		text-align: center;
@@ -58,36 +56,20 @@ const { title, pageHeader, pageNumber } = Astro.props;
 		}
 
 		@media only screen and (min-width: 768px) {
-			padding-inline: 6rem;
 		}
 
 		@media only screen and (min-width: 1100px) {
 			display: flex;
-			flex-direction: row;
+			flex-direction: row-reverse;
 			text-align: left;
 			align-items: stretch;
 			justify-content: space-between;
-			gap: 8rem;
+			align-items: center;
+			gap: 5rem;
 
 			padding: 0 10rem 8rem 10rem;
-			padding-inline: 10rem;
-		}
-	}
-
-	@media only screen and (min-width: 768px) {
-		.content {
-			display: flex;
-			flex-direction: column-reverse;
-			padding-bottom: 0;
-		}
-	}
-
-	@media only screen and (min-width: 1100px) {
-		.content {
-			flex-direction: row-reverse;
-			padding-bottom: 0;
+			padding-left: 10rem;
 			padding-right: 0;
-			gap: 1rem;
 		}
 	}
 </style>
