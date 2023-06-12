@@ -1,0 +1,176 @@
+---
+import SideNav from "./SideNav.astro";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<header>
+	<a href="/" class="logo">
+		<img src="public/shared/logo.svg" />
+	</a>
+	<button class="open-nav" aria-label="Open Navigation menu">
+		<img src="public/shared/icon-hamburger.svg" />
+	</button>
+	<hr />
+	<span class="links-container">
+		<a href="/" class={currentPath === "" ? "nav-text active" : "nav-text"}>
+			<span aria-hidden="true">00</span>
+			HOME
+		</a>
+		<a
+			href="/destination"
+			class={currentPath === "destination" ? "nav-text active" : "nav-text"}
+		>
+			<span aria-hidden="true">01</span>
+			DESTINATION</a
+		>
+		<a
+			href="/crew"
+			class={currentPath === "crew" ? "nav-text active" : "nav-text"}
+		>
+			<span aria-hidden="true">02</span>
+			CREW</a
+		>
+		<a
+			href="/technology"
+			class={currentPath === "technology" ? "nav-text active" : "nav-text"}
+		>
+			<span aria-hidden="true">03</span>
+			TECHNOLOGY</a
+		>
+	</span>
+</header>
+<SideNav isOpen={false} />
+
+<script lang="ts">
+const openButton = document.querySelector(".open-nav");
+const openNav = () => {
+	const nav = document.querySelector(".side-nav");
+	nav.classList.add("open");
+};
+if (openButton) {
+	openButton.addEventListener("click", openNav);
+}
+</script>
+
+<style lang="scss">
+	header {
+		width: 100%;
+		padding: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.logo {
+			transition: scale 0.4s ease-in-out;
+			&:hover {
+				scale: 1.2;
+			}
+		}
+
+		hr {
+			display: none;
+		}
+
+		button {
+			background-color: transparent;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.links-container {
+			display: none;
+
+			font-size: 0.875rem;
+			height: 6rem;
+			width: 65%;
+
+			padding: 0 2rem;
+
+			align-items: center;
+			justify-content: space-around;
+
+			letter-spacing: var(--font-spacing-small);
+			background: rgba(255, 255, 255, 0.04);
+			backdrop-filter: blur(0.25rem);
+
+			a {
+				display: block;
+				position: relative;
+
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 0;
+					bottom: -39px;
+					height: 0.25rem;
+					background-color: var(--text-primary);
+
+					transition: width 0.2s ease-in-out;
+				}
+
+				&.active::after {
+					width: 100%;
+				}
+
+				&:hover::after {
+					width: 100%;
+				}
+
+				span {
+					padding-right: 0.5rem;
+					font-weight: 700;
+				}
+			}
+		}
+
+		@media only screen and (min-width: 768px) {
+			padding: 0;
+			.logo {
+				padding-left: 1.5rem;
+			}
+
+			.open-nav {
+				display: none;
+			}
+
+			.links-container {
+				display: flex;
+				span {
+					display: none;
+				}
+			}
+		}
+
+		@media only screen and (min-width: 1100px) {
+			padding-top: 1.5rem;
+
+			hr {
+				margin-left: 2.5rem;
+				margin-right: -2.5rem;
+				z-index: 5;
+				display: block;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				width: 100%;
+			}
+
+			.links-container {
+				width: 65%;
+				max-width: 1100px;
+				flex-shrink: 0;
+
+				span {
+					display: inline;
+				}
+			}
+
+			.logo {
+				padding-left: 3.5rem;
+			}
+		}
+	}
+</style>

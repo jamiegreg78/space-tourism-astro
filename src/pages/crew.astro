@@ -1,0 +1,227 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Technology" pageNumber={2} pageHeader="Meet Your Crew">
+	<div slot="top-content" class="top-content">
+		<img
+			src="/crew/image-douglas-hurley.png"
+			alt="Dougas Hurley"
+			data-tab-content="douglas"
+			data-tab-content-active
+			class="person-image"
+		/>
+		<img
+			src="/crew/image-mark-shuttleworth.png"
+			alt="Mark Shuttleworth"
+			data-tab-content="mark"
+			class="person-image"
+		/>
+		<img
+			src="/crew/image-victor-glover.png"
+			alt="Victor Glover"
+			data-tab-content="victor"
+			class="person-image"
+		/>
+		<img
+			src="/crew/image-anousheh-ansari.png"
+			alt="Anousheh Ansari"
+			data-tab-content="anousheh"
+			class="person-image"
+		/>
+	</div>
+	<div class="bottom-content" slot="bottom-content">
+		<div class="tabs">
+			<span class="tab" data-tab="douglas" data-tab-active></span>
+			<span class="tab" data-tab="mark"></span>
+			<span class="tab" data-tab="victor"></span>
+			<span class="tab" data-tab="anousheh"></span>
+		</div>
+		<div class="tab-content" data-tab-content="douglas" data-tab-content-active>
+			<span class="heading-4">COMMANDER</span>
+			<h2 class="heading-3">Douglas Hurley</h2>
+			<p>
+				Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+				and former NASA astronaut. He launched into space for the third time as
+				mission commander of the Crew Dragon Demo-2.
+			</p>
+		</div>
+		<div class="tab-content" data-tab-content="mark">
+			<span class="heading-4">Mission Specialist</span>
+			<h2 class="heading-3">Mark Shuttleworth</h2>
+			<p>
+				Mark Richard Shuttleworth is the founder and CEO of Canonical, the
+				company behind the Linux-based Ubuntu operating system. Shuttleworth
+				became the first South African to travel to space as a space tourist.
+			</p>
+		</div>
+		<div class="tab-content" data-tab-content="victor">
+			<span class="heading-4">PILOT</span>
+			<h2 class="heading-3">Victor Glover</h2>
+			<p>
+				Pilot on the first operational flight of the SpaceX Crew Dragon to the
+				International Space Station. Glover is a commander in the U.S. Navy
+				where he pilots an F/A-18.He was a crew member of Expedition 64, and
+				served as a station systems flight engineer.
+			</p>
+		</div>
+		<div class="tab-content" data-tab-content="anousheh">
+			<span class="heading-4">Flight Engineer</span>
+			<h2 class="heading-3">Anounsheh Ansari</h2>
+			<p>
+				Anousheh Ansari is an Iranian American engineer and co-founder of Prodea
+				Systems. Ansari was the fourth self-funded space tourist, the first
+				self-funded woman to fly to the ISS, and the first Iranian in space.
+			</p>
+		</div>
+	</div>
+	<script src="../components/TabsHandler.ts"></script>
+</Layout>
+
+<style lang="scss" is:global>
+	body {
+		background: url(/public/crew/background-crew-mobile.jpg) no-repeat center
+			center fixed;
+		background-size: cover;
+
+		@media only screen and (min-width: 768px) {
+			background: url(/public/crew/background-crew-tablet.jpg) no-repeat center
+				center fixed;
+			background-size: cover;
+		}
+
+		@media only screen and (min-width: 1100px) {
+			background: url(/public/crew/background-crew-desktop.jpg) no-repeat center
+				center fixed;
+			background-size: cover;
+		}
+	}
+
+	.top-content {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.tabs {
+		padding-block: 1.5rem;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+
+		.tab {
+			display: block;
+			width: 1rem;
+			height: 1rem;
+
+			background-color: rgba(255, 255, 255, 0.2);
+			border-radius: 50%;
+
+			&:hover {
+				cursor: pointer;
+				background-color: rgba(255, 255, 255, 0.5);
+			}
+
+			&[data-tab-active] {
+				background-color: #fff;
+			}
+		}
+	}
+
+	.person-image {
+		width: 60%;
+		margin-inline: auto;
+	}
+
+	.tab-content {
+		span {
+			opacity: 0.5;
+			font-size: 1rem;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			font-size: 1.75rem;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.content {
+			display: flex;
+			flex-direction: column-reverse;
+			padding-bottom: 0;
+		}
+
+		.top-content {
+			border: none;
+			flex-grow: 0;
+			flex-shrink: 1;
+			min-width: 0;
+		}
+
+		.bottom-content {
+			padding-inline: 5rem;
+			flex-direction: column-reverse;
+			margin: auto;
+		}
+
+		.person-image {
+			width: 55%;
+			max-width: 23rem;
+		}
+
+		.tab-content {
+			span {
+				font-size: 1.75rem;
+			}
+
+			h2 {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1100px) {
+		.content {
+			flex-direction: row-reverse;
+			padding-bottom: 0;
+			padding-right: 0;
+			gap: 1rem;
+		}
+
+		.bottom-content {
+			padding-inline: 0;
+			width: auto;
+			max-width: 43rem;
+			flex-shrink: 2;
+			margin: 0;
+		}
+
+		.top-content {
+			justify-content: end;
+			flex-shrink: 1;
+		}
+
+		.bottom-content {
+			padding-bottom: 4rem;
+		}
+
+		.person-image {
+			width: auto;
+			max-width: unset;
+		}
+
+		.tabs {
+			padding-top: 8rem;
+			justify-content: start;
+		}
+
+		.tab-content {
+			span {
+				font-size: 2rem;
+			}
+
+			h2 {
+				font-size: 3.5rem;
+			}
+		}
+	}
+</style>

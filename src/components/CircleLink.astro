@@ -1,0 +1,51 @@
+---
+export interface Props {
+	text: string;
+	destination: string;
+}
+
+const { text, destination } = Astro.props;
+---
+
+<a class="link" href={destination}>
+	{text}
+</a>
+
+<style lang="scss">
+	.link {
+		width: 9.375rem;
+		height: 9.375rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-family: var(--font-primary);
+		font-size: 1.25rem;
+		color: var(--text-invert);
+		text-decoration: none;
+		background-color: #fff;
+		border-radius: 50%;
+		outline: 0px solid rgba(255, 255, 255, 0.1);
+		transition: outline 0.2s ease-in-out;
+
+		margin: auto;
+		margin-top: 2rem;
+
+		&:hover {
+			outline: 2.5rem solid rgba(255, 255, 255, 0.1);
+		}
+
+		@media only screen and (min-width: 768px) {
+			font-size: 2rem;
+			width: 15.125rem;
+			height: 15.125rem;
+			margin-top: 6rem;
+		}
+		@media only screen and (min-width: 1100px) {
+			font-size: 2rem;
+			width: 17.125rem;
+			height: 17.125rem;
+			margin: 0;
+		}
+	}
+</style>

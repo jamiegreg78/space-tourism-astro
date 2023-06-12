@@ -1,0 +1,213 @@
+---
+import Tabs from "../components/Tabs.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Destination" pageHeader="PICK YOUR DESTINATION" pageNumber={1}>
+	<div class="planet-images top-content" slot="top-content">
+		<img
+			data-tab-content="moon"
+			data-tab-content-active="true"
+			src="public/destination/image-moon.png"
+			alt="Picture of the Moon"
+		/>
+		<img
+			data-tab-content="mars"
+			src="public/destination/image-mars.png"
+			alt="Picture of the planet Mars"
+		/>
+		<img
+			data-tab-content="europa"
+			src="public/destination/image-europa.png"
+			alt="Picture of moon Europa"
+		/>
+		<img
+			data-tab-content="titan"
+			src="public/destination/image-titan.png"
+			alt="Picture of the moon Titan"
+		/>
+	</div>
+	<div class="planet-content bottom-content" slot="bottom-content">
+		<Tabs />
+		<div data-tab-content="moon" data-tab-content-active="true">
+			<h2 class="heading-3">MOON</h2>
+			<p>
+				See our planet as you’ve never seen it before. A perfect relaxing trip
+				away to help regain perspective and come back refreshed. While you’re
+				there, take in some history by visiting the Luna 2 and Apollo 11 landing
+				sites.
+			</p>
+			<hr />
+
+			<div class="stat-container heading-5">
+				<span class="statistic">
+					<span>AVG. DISTANCE</span>
+					<span class="value heading-4">384,400 KM</span>
+				</span>
+				<span class="statistic">
+					<span>EST. TRAVEL TIME</span>
+					<span class="value heading-4">3 DAYS</span>
+				</span>
+			</div>
+		</div>
+		<div data-tab-content="mars" data-tab-content-active="true">
+			<h2 class="heading-3">Mars</h2>
+			<p>
+				Don't forget to pack your hiking boots. You’ll need them to tackle
+				Olympus Mons, the tallest planetary mountain in our solar system. It’s
+				two and a half times the size of Mount Everest!
+			</p>
+			<hr />
+
+			<div class="stat-container heading-5">
+				<span class="statistic">
+					<span>AVG. DISTANCE</span>
+					<span class="value heading-4">225 MIL. KM</span>
+				</span>
+				<span class="statistic">
+					<span>EST. TRAVEL TIME</span>
+					<span class="value heading-4">9 MONTHS</span>
+				</span>
+			</div>
+		</div>
+		<div data-tab-content="europa" data-tab-content-active="true">
+			<h2 class="heading-3">Europa</h2>
+			<p>
+				The smallest of the four Galilean moons orbiting Jupiter, Europa is a
+				winter lover’s dream. With an icy surface, it’s perfect for a bit of ice
+				skating, curling, hockey, or simple relaxation in your snug wintery
+				cabin.
+			</p>
+
+			<hr />
+
+			<div class="stat-container heading-5">
+				<span class="statistic">
+					<span>AVG. DISTANCE</span>
+					<span class="value heading-4">6228 MIL. KM</span>
+				</span>
+				<span class="statistic">
+					<span>EST. TRAVEL TIME</span>
+					<span class="value heading-4">3 Years</span>
+				</span>
+			</div>
+		</div>
+		<div data-tab-content="titan" data-tab-content-active="true">
+			<h2 class="heading-3">Titan</h2>
+			<p>
+				The only moon known to have a dense atmosphere other than Earth, Titan
+				is a home away from home (just a few hundred degrees colder!). As a
+				bonus, you get striking views of the Rings of Saturn.
+			</p>
+
+			<hr />
+
+			<div class="stat-container heading-5">
+				<span class="statistic">
+					<span>AVG. DISTANCE</span>
+					<span class="value heading-4">1.6 BIL. KM</span>
+				</span>
+				<span class="statistic">
+					<span>EST. TRAVEL TIME</span>
+					<span class="value heading-4">7 years</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style lang="scss">
+	body {
+		background: url(/public/destination/background-destination-mobile.jpg)
+			no-repeat center center fixed;
+		background-size: cover;
+
+		@media only screen and (min-width: 768px) {
+			background: url(/public/destination/background-destination-tablet.jpg)
+				no-repeat center center fixed;
+			background-size: cover;
+		}
+
+		@media only screen and (min-width: 1100px) {
+			background: url(/public/destination/background-destination-desktop.jpg)
+				no-repeat center center fixed;
+			background-size: cover;
+		}
+	}
+
+	.planet-images {
+		img {
+			width: 10.625rem;
+			height: 10.625rem;
+
+			margin: 0 auto;
+			margin-bottom: 2rem;
+		}
+	}
+
+	.planet-content {
+		flex-grow: 1;
+	}
+
+	hr {
+		border: 1px solid var(--dark-blue);
+		margin: 2rem 0;
+	}
+
+	.stat-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+
+		span {
+			display: block;
+			text-transform: uppercase;
+		}
+
+		.value {
+			padding-top: 1rem;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.stat-container {
+			flex-direction: row;
+			justify-content: center;
+			gap: 4rem;
+
+			span:not(.value) {
+				font-size: 0.875rem;
+			}
+		}
+
+		.planet-images {
+			img {
+				width: 18.75rem;
+				height: 18.75rem;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1100px) {
+		.planet-images {
+			img {
+				width: 27.8125rem;
+				height: 27.8125rem;
+				margin: 0;
+			}
+		}
+
+		.stat-container {
+			justify-content: start;
+
+			span:not(.value) {
+				font-size: 0.875rem;
+			}
+		}
+
+		.top-content,
+		.bottom-content {
+			justify-content: center;
+		}
+	}
+</style>

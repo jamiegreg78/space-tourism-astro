@@ -1,0 +1,76 @@
+<script>
+	const button = document.querySelector(".side-nav .close-button");
+	const sideNav = document.querySelector(".side-nav");
+
+	if (button && sideNav) {
+		button.addEventListener("click", () => {
+			sideNav.classList.remove("open");
+		});
+	}
+</script>
+<nav class="side-nav">
+	<div class="top-section">
+		<button class="close-button" aria-label="Close side nav">
+			<img src="/shared/icon-close.svg" />
+		</button>
+	</div>
+	<div class="links">
+		<a class="nav-text" href="/"><span aria-hidden="true">00</span>Home</a>
+		<a class="nav-text" href="/destination"
+			><span aria-hidden="true">01</span>Destination</a
+		>
+		<a class="nav-text" href="/crew"><span aria-hidden="true">02</span>Crew</a>
+		<a class="nav-text" href="/technology"
+			><span aria-hidden="true">03</span>Technology</a
+		>
+	</div>
+</nav>
+
+<style lang="scss">
+	.side-nav {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 0;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(40px);
+		z-index: 10;
+		transition: all 0.3s ease-in-out;
+		padding: 2rem 0;
+		overflow: hidden;
+
+		color: var(--white);
+		&.open {
+			width: 15.625rem;
+		}
+
+		.top-section {
+			width: 100%;
+			display: flex;
+			justify-content: end;
+			padding: 0 1.75rem;
+			padding-bottom: 3.5rem;
+		}
+
+		.links {
+			padding: 0 1.75rem;
+
+			a {
+				margin-top: 1.5rem;
+				display: block;
+				text-transform: uppercase;
+
+				span {
+					padding-right: 0.5rem;
+					font-weight: 700;
+				}
+			}
+		}
+
+		button {
+			background: none;
+			border: none;
+		}
+	}
+</style>
